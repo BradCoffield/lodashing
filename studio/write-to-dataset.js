@@ -1,12 +1,13 @@
 require("dotenv").config();
 const sanityClient = require("@sanity/client");
 const seedrandom = require("seedrandom");
-const ourLodashData = require("/home/brad/Dropbox/Web Design/1-Coding Projects/022-scraping-lodash/lodash-util-methods.json");
+// const ourLodashData = require("/home/brad/Dropbox/Web Design/1-Coding Projects/022-scraping-lodash/lodash-util-methods.json");
 
 const apiToken = process.env.SANITY_TOKEN;
+const projectId = process.env.SANITY_PROJECT_ID;
 
 const client = sanityClient({
-  projectId: "a9tnoo3m",
+  projectId,
   dataset: "lodash-search",
   apiVersion: "2021-09-21", // use current UTC date - see "specifying API version"!
   token: process.env.SANITY_TOKEN,

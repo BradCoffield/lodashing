@@ -1,14 +1,8 @@
-const dotenv = require("dotenv").config();
+require("dotenv").config();
 const sanityClient = require("@sanity/client");
 const apiToken = process.env.SANITY_TOKEN;
 const projectId = process.env.SANITY_PROJECT_ID;
 
- 
-console.log(apiToken);
-
- 
-
-/*  
 const client = sanityClient({
   projectId,
   dataset: "lodash-search",
@@ -21,4 +15,3 @@ const query = "*[]";
 client.fetch(query).then((data) => {
   console.log(data);
 });
- */
