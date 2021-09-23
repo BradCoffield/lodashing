@@ -4,6 +4,7 @@ const sanityClient = require("@sanity/client");
 const apiToken = process.env.SANITY_TOKEN;
 const projectId = process.env.SANITY_PROJECT_ID;
 
+
 var algoliasearch = require("algoliasearch");
 var clientAlgolia = algoliasearch(
   process.env.ALGOLIA_PROJECT_ID,
@@ -20,11 +21,22 @@ const client = sanityClient({
   useCdn: false, // `false` if you want to ensure fresh data
 });
 
-const query = "*[]";
+const query = `*[_type == "lodash_method"]`;
 client.fetch(query).then((data) => {
+  let processedData = data.map((i) => {
+    return {
+      objectID: i._id,
+      methodName: i.method_name,
+      description: i.description,
+      category: i.category,
+    };
+  });
   lodashingIndex
-    .saveObjects(data, { autoGenerateObjectIDIfNotExist: true })
+    .saveObjects(processedData, { autoGenerateObjectIDIfNotExist: false })
     .then(({ objectIDs }) => {
       console.log(objectIDs);
-    });;
+    });
 });
+
+
+
