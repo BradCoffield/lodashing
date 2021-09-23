@@ -14,11 +14,7 @@
         Referrer-Policy= "no-referrer-when-downgrade"
         Permissions-Policy = "interest-cohort=()"
 
-# [[redirects]]
-#     from = "https://eleventastic.netlify.com/*"
-#     to = "https://eleventastic.dev/:splat"
-#     status = 301
-#     force = true
+
 
 [[redirects]]
     from = "*"
