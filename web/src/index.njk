@@ -5,5 +5,29 @@ eleventyNavigation:
 ---
 
 <div class="container">
-    <h1>A blank 11ty project.</h1>
+    <h1>lodashing</h1>
 </div>
+{% for method in lodashMethods %}
+   {# {% if method.category == "Util Methods"%}  #}
+    <ul>
+<li>{{method.method_name}}  </li>
+   <ul>
+    <li>{{method.links | safe}}</li>
+<li><b>Description: </b>{{method.description | safe}}    </li>
+<li><b>Arguments: </b>{{method.arguments | safe}}    </li>
+<li><b>Returns: </b>{{method.returns | safe}}    </li>
+<li><b>Example: </b>{{method.example | safe}}     </li>
+<li><b>Category: </b>{{method.category | safe}}    </li>
+<li><b>Featured On: </b>{{method.featured_on | safe}}    </li>
+<li>{{method.related_methods | safe}}    </li>
+<li> {{method.lodash_version | safe}}    </li>
+   
+   </ul>
+    <br/>
+    <hr/>
+    <br/>
+    
+  
+    </ul>  
+   {# {%endif%} #}
+{% endfor %}

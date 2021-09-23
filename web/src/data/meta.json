@@ -1,7 +1,7 @@
 {
-    "title": "Eleventastic",
-    "description": "An Eleventy Starter Kit",
-    "url": "https://eleventastic.netlify.app",
+    "title": "lodashing",
+    "description": "A useful little site for searching and exploring Lodash",
+    "url": "",
     "lang": "en",
     "locale": "en_us"
 }

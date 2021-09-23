@@ -67,6 +67,23 @@ export default createSchema({
           type: "array",
           of: [{ type: "string" }],
         },
+        {
+          title: "Featured On",
+          name: "featured_on",
+          type: "array",
+          of: [{ type: "string" }],
+        },
+        {
+          title: "Related Methods",
+          name: "related_methods",
+          type: "array",
+          of: [{ type: "string" }],
+        },
+        {
+          title: "Lodash Version",
+          name: "lodash_version",
+          type: "string",
+        },
       ],
     },
   ]),

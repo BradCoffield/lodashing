@@ -14,4 +14,20 @@ const client = sanityClient({
 const query = "*[]";
 client.fetch(query).then((data) => {
   console.log(data);
+
+  const fs = require("fs");
+
+ 
+
+  // // convert JSON object to a string
+  // const data = JSON.stringify(user);
+
+  // write file to disk
+  fs.writeFile("./data.json", JSON.stringify(data), "utf8", (err) => {
+    if (err) {
+      console.log(`Error writing file: ${err}`);
+    } else {
+      console.log(`File is written successfully!`);
+    }
+  });
 });
