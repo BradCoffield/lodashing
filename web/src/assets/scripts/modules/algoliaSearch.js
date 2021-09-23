@@ -14,15 +14,21 @@ const search = instantsearch({
 
 search.addWidgets([
     searchBox({
-        container: '#searchbox'
+        container: '#searchbox',
+        searchAsYouType: false,
+        showReset: true,
+        showSubmit: true
     }),
     hits({
         container: '#hits',
+        escapeHTML: false,
         templates: {
             item: `
 <article>
   <h1>{{#helpers.highlight}}{ "attribute": "methodName" }{{/helpers.highlight}}</h1>
-  <p>{{#helpers.highlight}}{ "attribute": "description" }{{/helpers.highlight}}</p>
+  <p>{{#helpers.snippet}}{ "attribute": "description" }{{/helpers.snippet}}</p>
+  <br/> 
+  <p>{{#helpers.highlight}}{ "attribute": "category" }{{/helpers.highlight}}  </p>
 </article>
 `
         }
