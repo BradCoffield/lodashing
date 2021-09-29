@@ -26,5 +26,9 @@
             navigator.serviceWorker.register('/serviceworker.js')
         }
     </script>
+    <script>
+     let a = {{ lodashMethods | dump | safe }}
+ console.log(a[0].method_name)
+  </script>
 </body>
 </html>
