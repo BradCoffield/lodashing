@@ -20,6 +20,7 @@
 //     return await client.fetch(query, params)
 // }
 
+console.log("hey, in lodashMethods")
 
 
 
