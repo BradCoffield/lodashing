@@ -26,9 +26,14 @@ export default createSchema({
       // Now we proceed to list the fields of our document
       fields: [
         {
-          title: "Method Name", // The display name for this field
-          name: "method_name", // The identifier for this field used in the api's
+          title: "Method", // The display name for this field
+          name: "method", // The identifier for this field used in the api's
           type: "string", // The type of this field
+        },
+        {
+          title: "Method Name",
+          name: "methodName",
+          type: "string",
         },
         {
           title: "Links",
@@ -83,7 +88,7 @@ export default createSchema({
           title: "Lodash Version",
           name: "lodash_version",
           type: "string",
-        },
+        }
       ],
     },
   ]),
