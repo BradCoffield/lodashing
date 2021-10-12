@@ -29,7 +29,7 @@ search.addWidgets([
   <p>{{#helpers.snippet}}{ "attribute": "description" }{{/helpers.snippet}}</p>
   <br/> 
   <p>{{#helpers.highlight}}{ "attribute": "category" }{{/helpers.highlight}}  </p>
-  <p><a href="/methods/{{objectID}}/">Details</a></p>
+  <p><a href="/methods/{{methodName}}/">Details</a></p>
 </article>
 `
         }

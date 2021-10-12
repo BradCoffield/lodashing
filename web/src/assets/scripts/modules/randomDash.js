@@ -10,7 +10,7 @@
     spot.insertAdjacentHTML(
         'afterbegin',
         `<div class="randomDash">
-        <h2 class="methodName">${randomDash.method_name}</h2>
+        <h2 class="methodName">${randomDash.methodName}</h2>
         <p>${randomDash.category}</p>
         <p>${randomDash.description}<p>Links: ${randomDash.links}</p></p>
         <p>Returns: ${randomDash.returns} </p>
