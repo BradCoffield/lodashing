@@ -1,0 +1,83 @@
+---
+layout: base
+permalink: /array-methods/
+eleventyNavigation:
+  key: ArrayMethods
+---
+
+<div class="container">
+    <h1>Array Methods</h1>
+    <div class="methodContainer" id="Array_Methods"></div>
+
+    {% for method in lodashMethods %}
+        {% if method.category == "Array Methods"%}
+
+            <br/>
+            <hr/>
+            <br/>
+
+            {%endif%}
+        {% endfor %}
+    </div>
+
+    {# <script src="../assets/scripts/custom/display-by-type.js"></script> #}
+
+    <script>
+        let a = {{ lodashMethods | dump | safe }}
+        const whichPageWeWorkingWith = document
+            .querySelector('.methodContainer')
+            .id
+            console
+            .log(whichPageWeWorkingWith)
+
+        let appendContent = (method, idToAppend) => {
+
+            let content = `<div class="browseMethodsMethodBlock">
+    
+                <h2>${method.methodName}
+                </h2>
+                <ul>
+                    <li>${method.method }</li>
+                    <li>${method.links}</li>
+                    <li>
+                        <b>Description:
+                        </b>${method.description}
+                    </li>
+                    <li>
+                        <b>Arguments:
+                        </b>${method.arguments}
+                    </li>
+                    <li>
+                        <b>Returns:
+                        </b>${method.returns}
+                    </li>
+                    <li>
+                        <b>Example:
+                        </b>${method.example}
+                    </li>
+                    <li>
+                        <b>Category:
+                        </b>${method.category}
+                    </li>
+                    {# <li>
+                        <b>Featured On:
+                        </b>${method.featured_on}
+                    </li> #}
+                    <li>${method.related_methods}
+                    </li>
+                    <li><b>Lodash Version:</b>
+                        ${method.lodash_version}
+                    </li>
+                </ul>
+</div>`
+            let aa = document.getElementById(idToAppend)
+            aa.insertAdjacentHTML("beforeend", content)
+        }
+        console.log(a)
+        let filtered = a.filter((i)=>{
+        return i.category == whichPageWeWorkingWith.replace("_", " ")
+        })
+        console.log(filtered)
+        filtered.forEach((i)=>{appendContent(i, whichPageWeWorkingWith)
+        })
+    </script>
