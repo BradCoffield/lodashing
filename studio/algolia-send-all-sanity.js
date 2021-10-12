@@ -26,9 +26,12 @@ client.fetch(query).then((data) => {
   let processedData = data.map((i) => {
     return {
       objectID: i._id,
-      methodName: i.method_name,
+      methodName: i.methodName,
+      method: i.method,
       description: i.description,
       category: i.category,
+      searchHelpers: i.search_helpers,
+      relatedMethods: i.related_methods,
     };
   });
   lodashingIndex
