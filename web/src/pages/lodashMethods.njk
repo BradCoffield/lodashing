@@ -1,9 +1,44 @@
 ---
+layout: base
 pagination:
     data: lodashMethods
     size: 1
     alias: lodashMethod
-permalink: "methods/{{ lodashMethod.methodName | slug }}/"
+permalink: "methods/{{ lodashMethod.methodName}}/"
 ---
 
-{{lodashMethod.methodName}}
+{# {{lodashMethod | dump }} #}
+
+<article class="results-item ">
+        <div class="results-interior-one"> 
+            <a class="unstyled-link" href="/methods/{{lodashMethod.methodName | safe}}/"><h2>{{lodashMethod.methodName | safe}}</h2></a>
+         <div class="category-area {{lodashMethod.category | safe}}-class"> {{lodashMethod.category | safe}}  </div>
+<div class="category-area">  {{lodashMethod.links | safe}}       </div>
+           </div>
+         <div class="results-interior-two"> <p>{{lodashMethod.method | safe}}</p>
+<p>    {{lodashMethod.description | safe}}     </p>
+<p > <div class="highlight">{{lodashMethod.example | safe}}</div> </p>
+<p>{{lodashMethod.returns | safe}}</p>
+<p>{{lodashMethod.lodash_version | safe}}</p>
+         </div>
+        
+ 
+ 
+  <br/> 
+  
+ 
+ 
+</article>
+
+<div class="methodPageContainer">
+    <ul>
+        <li>{{lodashMethod.methodName | safe}}</li>
+        <li>{{lodashMethod.method | safe}}</li>
+        <li>{{lodashMethod.category | safe}}</li>
+        <li>{{lodashMethod.links | safe}}</li>
+        <li>{{lodashMethod.description | safe}}</li>
+        <li>{{lodashMethod.example | safe}}</li>
+        <li>{{lodashMethod.returns | safe}}</li>
+        <li>{{lodashMethod.lodash_version | safe}}</li>
+    </ul>
+</div>

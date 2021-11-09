@@ -1,35 +1,92 @@
 <!DOCTYPE html>
 <html lang="{{ meta.lang }}">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ meta.title }}</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7/themes/algolia-min.css">
     <link rel="stylesheet" href="{{ '/assets/styles/main.css' | url }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&family=Work+Sans:ital,wght@0,300;0,400;0,700;0,800;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    
+
     {% include "meta.njk" %}
-</head>
-<body>
+  </head>
+  <body>
+
+    <button id="hamburger" class="hamburger"></button>
+    <div id="nav-wrap">
+      <nav id="main__nav" class="main__nav">
+        {% for item in primaryNavigation.navigation %}
+          <a href="{{item.path}}">{{item.name | safe}}</a>
+        {% endfor %}
+      </nav>
+    </div>
+
     {% iconsprite %}
     <a href="#main" class="sr-skip-link">skip to main content</a>
 
     <div class="layout" role="document">
-        {% include "header.njk" %}
-        <main id="main" class="main" tabindex="-1">
-            {{ content | safe }}
-        </main>
-        {% include "footer.njk" %}
+      {% include "header.njk" %}
+      <main id="main" class="main" tabindex="-1">
+
+        {# {% for item in primaryNavigation.navigation %}
+          <li>
+            <a href="{{item.path}}">{{item.name}}</a>
+          </li>
+        {% endfor %} #}
+
+        {{ content | safe }}
+      </main>
+      {% include "footer.njk" %}
     </div>
+
+    <script>
+
+      const nav = document.getElementById('main__nav')
+      const hamburger = document.getElementById('hamburger')
+      const navWrap = document.getElementById('nav-wrap')
+
+      nav.addEventListener('click', handleNav)
+      hamburger.addEventListener('click', handleNav)
+
+      function handleNav() {
+        if (!nav.classList.contains('main__nav--active')) {
+          nav
+            .classList
+            .add('main__nav--active');
+          hamburger
+            .classList
+            .add('hamburger--active')
+          navWrap.classList.add('displayInherit')
+
+        } else {
+          nav
+            .classList
+            .remove('main__nav--active');
+          hamburger
+            .classList
+            .remove('hamburger--active');
+            navWrap.classList.remove('displayInherit')
+
+        }
+      }
+    </script>
 
     <script type="text/javascript" src="{{ '/assets/scripts/main.js' | url }}"></script>
     <script type="text/javascript">
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/serviceworker.js')
-        }
+      if ('serviceWorker' in navigator) {
+        navigator
+          .serviceWorker
+          .register('/serviceworker.js')
+      }
     </script>
-    
+
     {# <script>
      let a = {{ lodashMethods | dump | safe }}
  console.log(a[0].methodName)
   </script> #}
-</body>
+  </body>
 </html>

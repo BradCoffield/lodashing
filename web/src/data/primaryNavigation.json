@@ -1,0 +1,9 @@
+{ "navigation":
+    [
+        {"name": "Home", "path": "/"},
+        {"name": "Browse&nbsp;Methods", "path": "/browse-methods/"},
+        {"name": "What&nbsp;is&nbsp;lodashing?", "path": "/about/"},
+        {"name": "Tech&nbsp;Stack", "path": "/tech/"},
+        {"name": "Contact", "path": "/contact/"}
+    ]
+}

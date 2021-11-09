@@ -1,0 +1,70 @@
+---
+layout: base
+---
+ 
+ <div class="container">
+    <h1>{{title}}</h1>
+    <div class="methodContainer" id="{{methodCategory}}"></div>
+ 
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+ 
+    <script>
+        let a = {{ lodashMethods | dump | safe }}
+        const whichPageWeWorkingWith = document
+            .querySelector('.methodContainer')
+            .id
+            console
+            .log(whichPageWeWorkingWith)
+
+        let appendContent = (method, idToAppend) => {
+
+            let content = `<div class="browseMethodsMethodBlock">
+    
+                <h2 id="${method.methodName}">${method.methodName}
+                </h2>
+                <ul>
+                    <li>${method.method }</li>
+                    <li>${method.links}</li>
+                    <li>
+                        <b>Description:
+                        </b>${method.description}
+                    </li>
+                    <li>
+                        <b>Arguments:
+                        </b>${method.arguments}
+                    </li>
+                    <li>
+                        <b>Returns:
+                        </b>${method.returns}
+                    </li>
+                    <li>
+                        <b>Example:
+                        </b>${method.example}
+                    </li>
+                    <li>
+                        <b>Category:
+                        </b>${method.category}
+                    </li>
+                    {# <li>
+                        <b>Featured On:
+                        </b>${method.featured_on}
+                    </li> #}
+                    <li>${method.related_methods}
+                    </li>
+                    <li><b>Lodash Version:</b>
+                        ${method.lodash_version}
+                    </li>
+                </ul>
+</div>`
+            let aa = document.getElementById(idToAppend)
+            aa.insertAdjacentHTML("beforeend", content)
+        }
+   
+        let filtered = a.filter((i)=>{
+        return i.category == whichPageWeWorkingWith.replace("_", " ")
+        })
+      let sorted = _.sortBy(filtered, 'methodName')
+        sorted.forEach((i)=>{appendContent(i, whichPageWeWorkingWith)
+        })
+    </script>

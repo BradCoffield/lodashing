@@ -1,6 +1,12 @@
 import algoliasearch from 'algoliasearch/lite'
 import instantsearch from 'instantsearch.js'
-import { searchBox, hits, pagination } from 'instantsearch.js/es/widgets'
+// import '@algolia/autocomplete-theme-classic'
+import {
+    searchBox,
+    hits,
+    pagination,
+    poweredBy
+} from 'instantsearch.js/es/widgets'
 
 const searchClient = algoliasearch(
     'FV3J0ZLSKP',
@@ -9,27 +15,50 @@ const searchClient = algoliasearch(
 
 const search = instantsearch({
     indexName: 'lodashing',
-    searchClient
+    searchClient,
+    routing: true,
+    searchFunction(helper) {
+        const container = document.querySelector('#hits-and-pagination')
+        container.style.display = helper.state.query === '' ? 'none' : ''
+
+        helper.search()
+    }
 })
 
 search.addWidgets([
+    poweredBy({
+        container: '#powered-by'
+    }),
     searchBox({
         container: '#searchbox',
         searchAsYouType: false,
-        showReset: true,
-        showSubmit: true
+        showReset: false,
+        showSubmit: true,
+        placeholder: "Search lodash's capabilities",
+        showLoadingIndicator: true
     }),
     hits({
         container: '#hits',
         escapeHTML: false,
         templates: {
+            empty: `<div>
+                <p>No results have been found for {{ query }}</p>
+                <a role="button" href=".">Reset your search</a>
+              </div>`,
             item: `
-<article>
-  <h1>{{#helpers.highlight}}{ "attribute": "methodName" }{{/helpers.highlight}}</h1>
-  <p>{{#helpers.snippet}}{ "attribute": "description" }{{/helpers.snippet}}</p>
+<article class="results-item">
+        <div class="results-interior-one"> 
+            <a class="unstyled-link" href="/methods/{{methodName}}/"><h2>{{#helpers.highlight}}{ "attribute": "methodName" }{{/helpers.highlight}}</h2></a>
+         <div class="category-area {{category}}-class"> {{category}}  </div>
+           </div>
+         <div class="results-interior-two"> <p>{{#helpers.snippet}}{ "attribute": "description" }{{/helpers.snippet}}</p></div>
+        
+ 
+ 
   <br/> 
-  <p>{{#helpers.highlight}}{ "attribute": "category" }{{/helpers.highlight}}  </p>
-  <p><a href="/methods/{{methodName}}/">Details</a></p>
+  
+ 
+ 
 </article>
 `
         }
@@ -40,3 +69,4 @@ search.addWidgets([
 ])
 
 search.start()
+//  END MINE

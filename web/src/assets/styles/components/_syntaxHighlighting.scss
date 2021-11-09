@@ -1,0 +1,25 @@
+.highlight pre {
+	background-color: #283646;
+	color: #ddd;
+	// margin: 0 -999rem;
+	// padding: 3.2rem 999rem;
+	// position: relative;
+}
+.highlight pre * {
+    font-family: monospace;
+}
+.highlight * .modifier, .highlight * .numeric, .highlight * .type {
+    color: #fee937;
+}
+
+.highlight * .name, .highlight * .support {
+    color: #86b9f5;
+}
+.highlight * .delimiter {
+    color: inherit;
+     
+}
+.highlight * .comment {
+    color:fuchsia;
+     
+}

@@ -16,7 +16,7 @@
     </button>
 
     {# Nav Links  #}
-    <ul class="nav__menu js-nav-menu" id="nav-menu">
+    {# <ul class="nav__menu js-nav-menu" id="nav-menu">
     {%- for item in collections.all | eleventyNavigation -%}
         {%- if item.url -%}
             {%- set isCurrent = (item.url == page.url) -%}
@@ -32,6 +32,13 @@
             </li>
         {%- endif -%}
     {%- endfor -%}
-    </ul>
+    </ul> #}
+
+<ul class="nav__menu js-nav-menu" id="nav-menu">
+    <li class="nav__item">Home</li>
+    <li class="nav__item">Browse</li>
+    <li class="nav__item">About</li>
+    <li class="nav__item">Contact</li>
+</ul>
 
 </nav>
