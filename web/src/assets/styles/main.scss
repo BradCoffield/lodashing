@@ -55,8 +55,10 @@ $color-accent3: #744eaa47;
 @font-face {
     font-family: 'JetBrainsMono';
 
-    src: url('/assets/fonts/JetBrainsMono-2.242/fonts/webfonts/JetBrainsMono-Regular.woff2') format('woff2'),
-        url('/assets/fonts/JetBrainsMono-2.242/fonts/ttf/JetBrainsMonoNL-Regular.ttf') format('truetype');
+    src: url('/assets/fonts/JetBrainsMono-2.242/fonts/webfonts/JetBrainsMono-Regular.woff2')
+            format('woff2'),
+        url('/assets/fonts/JetBrainsMono-2.242/fonts/ttf/JetBrainsMonoNL-Regular.ttf')
+            format('truetype');
 }
 
 // * { font-family: 'Montserrat', sans-serif; }
@@ -65,7 +67,8 @@ $color-accent3: #744eaa47;
     font-family: 'Work Sans', sans-serif;
     color: #c8c8cc;
 }
-code, pre {
+code,
+pre {
     font-family: 'JetBrainsMono', monospace;
 }
 
@@ -144,7 +147,6 @@ code, pre {
 }
 code,
 pre {
-   
     padding: 4px;
     // background-color: rgb(242, 241, 251);
     border-radius: 5px;
@@ -353,7 +355,7 @@ hr {
         font-size: 1.2rem;
     }
 }
- 
+
 .footer-nav li {
     display: inline;
     padding: 1rem;
@@ -362,7 +364,7 @@ hr {
 
 .methodCode {
     padding: 1rem 0 8px;
-    
+
     border-radius: 5px;
     margin: 0 0 1.2rem;
     font-size: 1.2rem;
@@ -373,10 +375,10 @@ hr {
 .methodCode code {
     // background-color: $color-accent3!important;
     padding: 1rem;
-    border-radius:5px;
+    border-radius: 5px;
     margin-left: 0px;
- 
-    padding:1rem
+
+    padding: 1rem;
 }
 .methodDescription {
     margin: 2rem 0;
@@ -386,10 +388,10 @@ hr {
     color: white;
 }
 .method-page-results-item {
-    width:960px;
+    width: 960px;
     max-width: 95%;
     display: block;
-    margin:1rem auto 5rem;
+    margin: 1rem auto 5rem;
     padding: 2rem;
     border-radius: 15px;
     background: $color-primary-lighter;
@@ -398,13 +400,153 @@ hr {
         margin-bottom: 5px;
         letter-spacing: 1px;
     }
-    .category-area, .methodDescription, .methodExample, .methodReturns, .methodArguments {
+    .category-area,
+    .methodDescription,
+    .methodExample,
+    .methodReturns,
+    .methodArguments {
         margin-bottom: 3rem;
     }
 }
-footer {text-align: center;}
+footer {
+    text-align: center;
+}
 .arguments-ul {
     list-style-type: disc;
     padding-left: 40px;
-    li {margin-bottom: 1rem;}
+    li {
+        margin-bottom: 1rem;
+    }
 }
+
+.hidden {
+    display: none;
+}
+
+form#contact-form {
+    // padding: 35px;
+    // box-shadow: 0px 0px 5px #777;
+    // border-radius: 5px;
+    // border: 7px solid transparent;
+    // background-color: $color-primary-lighter;
+    // margin: 2rem;
+    width: 960px;
+max-width: 95%;
+display: block;
+margin: 1rem auto 5rem;
+padding: 2rem;
+border-radius: 15px;
+background: #1a1a2b;
+}
+#contact-form label {
+    // color: #000;
+    display: block;
+    font-size: 0.8em;
+    font-weight: 400;
+    margin: 0 0 1em 0;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: white;
+     font-size: 16px;
+}
+
+#contact-form input[type='text'],
+#contact-form input[type='password'],
+#contact-form input[type='email'],
+#contact-form input[type='tel'],
+#contact-form input[type='search'],
+#contact-form input[type='url'],
+#contact-form select,
+#contact-form textarea {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    background: rgba(144, 144, 144, 0.075);
+    border-radius: 8px;
+    border: none;
+    border: solid 1px #111;
+    color: inherit;
+    display: block;
+    outline: 0;
+    // padding: 0 1em;
+    text-decoration: none;
+    width: 100%;
+    margin: 0.5rem 0;
+}
+#contact-form input[type='text'],
+#contact-form input[type='password'],
+#contact-form input[type='email'],
+#contact-form input[type='tel'],
+#contact-form input[type='search'],
+#contact-form input[type='url'],
+select {
+    height: 2.75em;
+    padding: 1.5rem;
+}
+
+#contact-form input[type='submit'],
+#contact-form input[type='reset'],
+#contact-form input[type='button'],
+#contact-form button,
+.button {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    -moz-transition: background-color 0.2s ease, box-shadow 0.2s ease,
+        color 0.2s ease;
+    -webkit-transition: background-color 0.2s ease, box-shadow 0.2s ease,
+        color 0.2s ease;
+    -ms-transition: background-color 0.2s ease, box-shadow 0.2s ease,
+        color 0.2s ease;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease,
+        color 0.2s ease;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    background-color: transparent;
+    border-radius: 8px;
+    border: 0;
+    box-shadow: inset 0 0 0 1px $color-accent1;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9em;
+    font-weight: 400;
+    height: 3.5em;
+    letter-spacing: 0.25em;
+    line-height: 3.5em;
+    padding: 0 2em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+#contact-form input[type='submit']:hover,
+#contact-form input[type='submit'].active,
+#contact-form input[type='reset']:hover,
+#contact-form input[type='reset'].active,
+#contact-form input[type='button']:hover,
+#contact-form input[type='button'].active,
+#contact-form button:hover,
+#contact-form button.active,
+.button:hover,
+.button.active {
+    /* box-shadow: inset 0 0 0 1px #7867be; */
+    /* color: #7867be !important; */
+    box-shadow: 0px 1px 15px $color-accent1;
+    color: $color-primary-font;
+}
+#contact-form input[type='text']:focus,
+#contact-form input[type='password']:focus,
+#contact-form input[type='email']:focus,
+#contact-form input[type='tel']:focus,
+#contact-form input[type='search']:focus,
+#contact-form input[type='url']:focus,
+#contact-form select:focus,
+#contact-form textarea:focus {
+    border-color: $color-accent1;
+    box-shadow: 0 0 0 1px $color-accent1;
+}
+textarea {height:150px;
+padding:1rem}
