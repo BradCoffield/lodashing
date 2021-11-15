@@ -1,25 +1,32 @@
 .highlight pre {
-	background-color: #283646;
-	color: #ddd;
-	// margin: 0 -999rem;
-	// padding: 3.2rem 999rem;
-	// position: relative;
+    background-color: #09091b;
+    // background-color: #283646;
+    color: #ddd;
+    border-radius: 5px;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    margin-top:10px;
 }
 .highlight pre * {
-    font-family: monospace;
+    font-family: 'JetBrainsMono',monospace;
 }
-.highlight * .modifier, .highlight * .numeric, .highlight * .type {
-    color: #fee937;
+.highlight * .modifier,
+.highlight * .numeric,
+.highlight * .type {
+    color: #1990ff;
+    // color: #f02540;
 }
 
-.highlight * .name, .highlight * .support {
-    color: #86b9f5;
+.highlight * .name,
+.highlight * .support {
+    color: #23f1a2;
 }
 .highlight * .delimiter {
     color: inherit;
-     
 }
 .highlight * .comment {
-    color:fuchsia;
-     
+    color: #998;
+}
+code {
+    background-color: #09091b !important;
 }
