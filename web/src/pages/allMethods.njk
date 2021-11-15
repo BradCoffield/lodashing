@@ -1,0 +1,101 @@
+---
+layout: base
+permalink: /methods/all/
+---
+
+<div id="container-for-methods"> </div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+ 
+    <script>
+        let a = {{ lodashMethods | dump | safe }}
+
+        let appendContent = (method) => {
+//need to change this content to match what I've devised for individual blocks
+            let content2 = `<div class="browseMethodsMethodBlock">
+    
+                <h2 id="${method.methodName}">${method.methodName}
+                </h2>
+                <ul>
+                    <li>${method.method }</li>
+                    <li>${method.links}</li>
+                    <li>
+                        <b>Description:
+                        </b>${method.description}
+                    </li>
+                    <li>
+                        <b>Arguments:
+                        </b>${method.arguments}
+                    </li>
+                    <li>
+                        <b>Returns:
+                        </b>${method.returns}
+                    </li>
+                    <li>
+                        <b>Example:
+                        </b>${method.example}
+                    </li>
+                    <li>
+                        <b>Category:
+                        </b>${method.category}
+                    </li>
+                 
+                    <li>${method.related_methods}
+                    </li>
+                    <li><b>Lodash Version:</b>
+                        ${method.lodash_version}
+                    </li>
+                </ul>
+</div>`
+
+let content = `
+<article class="method-page-results-item ">
+    
+    <div class="results-interior-two">
+        <div class="methodCode" id="${method.methodName}"><code>${method.method}</code>
+       </div> 
+      
+        <div class="category-area" style="margin-top:-1rem">
+            ${method.category} | ${method.lodash_version} | ${method.links}
+        </div>
+        {# <hr/> #}
+        <div class="methodDescription">
+        <h3>Description</h3>
+           ${method.description}
+        </div>
+            <div class="methodArguments">
+         <h3>Arguments</h3>
+         <ul class="arguments-ul">${method.arguments}</ul></div>
+         <div class="methodReturns">
+         <h3>Returns</h3>
+        ${method.returns}</div>
+        <div class="methodExample" >
+<h3>        Example</h3>
+            <div class="highlight">${method.example}</div>
+        </div>
+       
+       
+    </div>
+
+    <br/>
+
+</article>`
+
+
+            let aa = document.getElementById('container-for-methods')
+            aa.insertAdjacentHTML("beforeend", content)
+        }
+
+// need to create a new variable that is 'a' sorted alphabetically
+
+ 
+
+let sorted = _.sortBy(a, 'methodName')
+        sorted.forEach((i)=>{appendContent(i)
+        })
+
+ 
+    </script>
