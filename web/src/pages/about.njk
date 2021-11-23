@@ -5,6 +5,23 @@ eleventyNavigation:
   key: About
 ---
 
-<div class="container">
-    <h1>About</h1>
+<div id="about-page">
+  
+  <div class="container method-page-results-item">
+  
+  
+              <h2 style="text-align:center;">What is <span class="cursive">lodashing</span> ?</h2>
+     <br><hr><br>
+     <p>
+      Lodashing was born of a desire to try out some new technologies, apply some recent learning, and also build something that, at the very least, I could use for myself to better know what is available in <a href="https://lodash.com/" target="_blank">lodash</a>. Also, I wasn't entirely thrilled by the experience of using lodash's docs.
+     </p> <br>
+     <p>
+     As a <a href="https://www.bradcoffield.com/">librarian</a> who frequently helps students conduct research, effective search tools matter a lot to me. It seemed to me that using Algolia to provide a nice search of lodash would be a good start. After all, lodash's docs provide only a search of method names. But I didn't want that to be all. How can we make our enhanced search experience even better? For example, if you searched for "unique" you wouldn't get the method named "uniq"... This didn't feel right. I also wanted to start enhancing the search with terms and phrases that were synonomous in common usage with things used in the official documentation. So that someone searching for "removed" would also get things like <a href="/methods/drop/">_.drop.</a> These additional search enhancements are an ongoing part of development and I would love <a href="/contact/">your suggestions</a>.
+     </p>
+  <br>
+  <h3 style="margin-bottom:1rem;margin-top:2rem;">How it's made</h3>
+  <p>First, the <a href="https://lodash.com/" target="_blank">lodash</a> <a href="https://lodash.com/docs/" target="_blank">docs</a> are scraped using <a href="https://github.com/puppeteer/puppeteer" target="_blank">Puppeteer</a>. Then some data processing happens so that what we need is extracted. I wanted to try out <a href="https://www.sanity.io/" target="_blank">Sanity.io</a> so our processed lodash documentation gets uploaded to Sanity. In Sanity I have one collection with each lodash method as its own item. Then, to build this site, <a href="https://www.11ty.dev/">11ty</a> is used. Because it's great. We talk to Sanity during the build process to get all of our methods. For this site I tried out using the <a href="https://github.com/maxboeck/eleventastic" target="_blank">Eleventastic</a> 11ty starter kit because it looked nice and provides some foundational extras &mdash; things like Sass compilation and Webpack bundling for our Javascript. Separately from our build, we send our data from Sanity directly into <a href="https://www.algolia.com/" target="_blank">Algolia</a>, where we do some additional massaging of our data to enhance the search experience. Lastly, the site is hosted with a free plan from <a href="https://www.netlify.com/" target="_blank">Netlify</a>. </p>
+  
+  
+  </div>
 </div>

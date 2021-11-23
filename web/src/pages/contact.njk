@@ -7,9 +7,9 @@ eleventyNavigation:
 
 <div class="container">
     {# <h1>Contact</h1> #}
-           <form name="contact" method="POST" data-netlify="true" id="contact-form">
-            <p style="text-align:center;">I'd love to hear what you think of the project or any suggestions you may have. <br> The <a href="https://github.com/BradCoffield/lodashing">Github repo</a> is here, if you'd like to contribute or file a bug.</p>
-   <br><hr><br>
+           <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contact-form">
+            <p style="text-align:center;font-size:18px;">I'd love to hear what you think of the project or any suggestions you may have. <br> Checkout the <a href="https://github.com/BradCoffield/lodashing">Github repo</a> if you'd like to contribute or file a bug.</p>
+   <br><hr><br> <br>
            <p class="hidden">
     <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
   </p>

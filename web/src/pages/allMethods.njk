@@ -3,14 +3,46 @@ layout: base
 permalink: /methods/all/
 ---
 
+<div class="button-group filters-button-group">
+  <button class="button is-checked" data-filter="*" style="width:100%">show all</button>
+    <button class="button" data-filter=".Array">Array</button>
+    <button class="button" data-filter=".Collection">Collection</button>
+    <button class="button" data-filter=".Date">Date</button>
+  <button class="button" data-filter=".Function">Function</button>
+  <button class="button" data-filter=".Lang">Lang</button>
+  <button class="button" data-filter=".Math">Math</button>
+  <button class="button" data-filter=".Number">Number</button>
+  <button class="button" data-filter=".Object">Object</button>
+  <button class="button" data-filter=".Seq">Seq</button>
+  <button class="button" data-filter=".String">String</button>
+  <button class="button" data-filter=".Util">Util</button>
+
+  <button class="button" data-filter=".String">String</button>
+ 
+</div>
+
+{# <div id="filters">
+    
+    <select id="filters-select" onChange="update()" >
+        <option value="*">All</option>
+        <option value=".Array">Array</option>
+        <option value=".green">Green</option>
+        <option value=".blue">Blue</option>
+        <option value=".yellow">Yellow</option>        
+    </select>    
+</div> #}
+
 <div id="container-for-methods"> </div>
 
 
 
 
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+<script src="https://unpkg.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
+
  
     <script>
+   
         let a = {{ lodashMethods | dump | safe }}
 
         let appendContent = (method) => {
@@ -52,10 +84,10 @@ permalink: /methods/all/
 </div>`
 
 let content = `
-<article class="method-page-results-item ">
+<article class="method-page-results-item filtering-item ${method.category}">
     
     <div class="results-interior-two">
-        <div class="methodCode" id="${method.methodName}"><code>${method.method}</code>
+        <div class="methodCode" id="${method.methodName}"><pre>${method.method}</pre>
        </div> 
       
         <div class="category-area" style="margin-top:-1rem">
@@ -96,6 +128,76 @@ let content = `
 let sorted = _.sortBy(a, 'methodName')
         sorted.forEach((i)=>{appendContent(i)
         })
+
+ 
+var grid = document.querySelector('#container-for-methods');
+
+var iso = new Isotope( grid, {
+  itemSelector: '.filtering-item',
+  layoutMode: 'fitRows'
+});
+
+ 
+// filter functions
+var filterFns = {
+  // show if number is greater than 50
+  numberGreaterThan50: function( itemElem ) {
+    var number = itemElem.querySelector('.number').textContent;
+    return parseInt( number, 10 ) > 50;
+  },
+  // show if name ends with -ium
+  ium: function( itemElem ) {
+    var name = itemElem.querySelector('.name').textContent;
+    return name.match( /ium$/ );
+  }
+};
+
+// bind filter button click
+var filtersElem = document.querySelector('.filters-button-group');
+filtersElem.addEventListener( 'click', function( event ) {
+  // only work with buttons
+  if ( !matchesSelector( event.target, 'button' ) ) {
+    return;
+  }
+  var filterValue = event.target.getAttribute('data-filter');
+  // use matching filter function
+  filterValue = filterFns[ filterValue ] || filterValue;
+  iso.arrange({ filter: filterValue });
+});
+
+// change is-checked class on buttons
+var buttonGroups = document.querySelectorAll('.button-group');
+for ( var i=0, len = buttonGroups.length; i < len; i++ ) {
+  var buttonGroup = buttonGroups[i];
+  radioButtonGroup( buttonGroup );
+}
+
+function radioButtonGroup( buttonGroup ) {
+  buttonGroup.addEventListener( 'click', function( event ) {
+    // only work with buttons
+    if ( !matchesSelector( event.target, 'button' ) ) {
+      return;
+    }
+    buttonGroup.querySelector('.is-checked').classList.remove('is-checked');
+    event.target.classList.add('is-checked');
+  });
+}
+
+{# var selectGroup = document.getElementById("filters-select")
+
+ 
+			function update() {
+				var select = document.getElementById("filters-select")
+				var option = select.options[select.selectedIndex];
+  iso.arrange({ filter: option.value });
+console.log(option.value, option.text)
+	 
+			}
+
+			update(); #}
+		
+
+
 
  
     </script>

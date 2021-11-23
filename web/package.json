@@ -1,7 +1,7 @@
 {
-  "name": "eleventastic",
+  "name": "Lodashing",
   "version": "1.0.0",
-  "description": "A boilerplate for eleventy websites",
+  "description": "An alternative way to explore the lodash docs",
   "browserslist": [
     "defaults"
   ],
@@ -18,7 +18,7 @@
     "type": "git",
     "url": "http://github.com/maxboeck/eleventastic"
   },
-  "author": "Max Böck",
+  "author": "Brad Coffield",
   "license": "MIT",
   "dependencies": {
     "@11ty/eleventy": "^0.12.1",
@@ -44,6 +44,7 @@
     "focus-visible": "^5.2.0",
     "html-minifier": "^4.0.0",
     "instantsearch.js": "^4.30.1",
+    "isotope-layout": "^3.0.6",
     "lodash": "^4.17.21",
     "luxon": "^1.26.0",
     "markdown-it": "^12.0.4",
