@@ -31,7 +31,7 @@ search.addWidgets([
     }),
     searchBox({
         container: '#searchbox',
-        searchAsYouType: false,
+        searchAsYouType: true,
         showReset: false,
         showSubmit: true,
         placeholder: "Search lodash's capabilities",
